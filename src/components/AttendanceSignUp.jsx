@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { FiArrowRight, FiCheckCircle, FiMail, FiUser } from "react-icons/fi";
 
 const AttendanceSignUp = () => {
   const [formData, setFormData] = useState({
@@ -33,35 +34,47 @@ const AttendanceSignUp = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="panel form-card">
-      <h1>Attendance Form</h1>
+    <form onSubmit={handleSubmit} className="contact-card form-card">
+      <span className="badge">Attendance</span>
+      <h1>Mark Your Attendance.</h1>
+      <p className="intro-text">
+        Submit your attendance with your name and email address.
+      </p>
 
-      <label>
-        Name
+      <label className="field">
+        <span>Full Name</span>
+        <span className="input-wrap">
+          <FiUser aria-hidden="true" />
         <input
           type="text"
           name="name"
-          placeholder="Enter your name"
+          placeholder="Enter your full name"
           value={formData.name}
           onChange={handleChange}
           required
         />
+        </span>
       </label>
 
-      <label>
-        Email
+      <label className="field">
+        <span>Email Address</span>
+        <span className="input-wrap">
+          <FiMail aria-hidden="true" />
         <input
           type="email"
           name="email"
-          placeholder="Enter your email"
+          placeholder="Enter your email address"
           value={formData.email}
           onChange={handleChange}
           required
         />
+        </span>
       </label>
 
-      <label>
-        Attendance
+      <label className="field">
+        <span>Status</span>
+        <span className="input-wrap">
+          <FiCheckCircle aria-hidden="true" />
         <select
           name="status"
           value={formData.status}
@@ -72,10 +85,11 @@ const AttendanceSignUp = () => {
           <option value="Present">Present</option>
           <option value="Absent">Absent</option>
         </select>
+        </span>
       </label>
 
-      <button type="submit" className="button">
-        Submit Attendance
+      <button type="submit" className="submit-button">
+        Submit Form <FiArrowRight aria-hidden="true" />
       </button>
 
       {submittedBy && (

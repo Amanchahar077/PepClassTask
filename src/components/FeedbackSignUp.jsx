@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { FiArrowRight, FiMail, FiMessageSquare, FiUser } from "react-icons/fi";
 
 const FeedbackSignUp = () => {
   const [formData, setFormData] = useState({
@@ -33,47 +34,60 @@ const FeedbackSignUp = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="panel form-card">
-      <h1>Feedback Form</h1>
+    <form onSubmit={handleSubmit} className="contact-card form-card">
+      <span className="badge">Contact Us</span>
+      <h1>Let&apos;s Get In Touch.</h1>
+      <p className="intro-text">
+        Or just reach out manually to us at <a href="mailto:hello@pepbulb.com">hello@pepbulb.com</a>
+      </p>
 
-      <label>
-        Name
+      <label className="field">
+        <span>Full Name</span>
+        <span className="input-wrap">
+          <FiUser aria-hidden="true" />
         <input
           type="text"
           name="name"
-          placeholder="Enter your name"
+          placeholder="Enter your full name"
           value={formData.name}
           onChange={handleChange}
           required
         />
+        </span>
       </label>
 
-      <label>
-        Email
+      <label className="field">
+        <span>Email Address</span>
+        <span className="input-wrap">
+          <FiMail aria-hidden="true" />
         <input
           type="email"
           name="email"
-          placeholder="Enter your email"
+          placeholder="Enter your email address"
           value={formData.email}
           onChange={handleChange}
           required
         />
+        </span>
       </label>
 
-      <label>
-        Feedback
+      <label className="field">
+        <span>Message</span>
+        <span className="input-wrap textarea-wrap">
+          <FiMessageSquare aria-hidden="true" />
         <textarea
           name="feedback"
-          placeholder="Enter your feedback"
+          placeholder="Enter your message"
           value={formData.feedback}
           onChange={handleChange}
           rows="4"
           required
         />
+        </span>
       </label>
 
-      <button type="submit" className="button">
-        Submit Feedback
+      <button type="submit" className="submit-button">
+        Submit Form <FiArrowRight aria-hidden="true" />
       </button>
 
       {submittedBy && (

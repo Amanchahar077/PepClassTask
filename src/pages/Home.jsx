@@ -1,33 +1,41 @@
 import { useNavigate } from "react-router-dom";
+import { FiArrowRight } from "react-icons/fi";
 
 const Home = () => {
   const navigate = useNavigate();
 
   return (
     <main className="page">
-      <section className="panel home-panel">
-        <h1>Student Portal</h1>
+      <section className="contact-card home-card">
+        <span className="badge">Student Portal</span>
+        <h1>Choose a Form.</h1>
+        <p className="intro-text">
+          Select what you want to submit today.
+        </p>
 
         <div className="button-list">
           <button
             onClick={() => navigate("/feedback")}
-            className="button"
+            className="menu-button"
           >
             Feedback
+            <FiArrowRight aria-hidden="true" />
           </button>
 
           <button
             onClick={() => navigate("/attendance")}
-            className="button"
+            className="menu-button"
           >
             Attendance
+            <FiArrowRight aria-hidden="true" />
           </button>
 
           <button
             onClick={() => navigate("/sports-enrollment")}
-            className="button"
+            className="menu-button"
           >
             Sports Enrollment
+            <FiArrowRight aria-hidden="true" />
           </button>
         </div>
       </section>
